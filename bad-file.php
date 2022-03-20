@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script type="text/javascript" src="jquery.min.js"></script>
+        <script type="text/javascript" src="jquery"></script>
     </head>
     <script>
         function changePwdPost(){

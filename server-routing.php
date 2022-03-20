@@ -10,6 +10,9 @@ if($router[-1]=='/'){
 if($router == ''){
     include 'bad-file.php';
     exit;
+} elseif($router == 'jquery'){
+    include 'jquery.min.js';
+    exit;
 }else{
     echo "error 404";
     include '404.php';
