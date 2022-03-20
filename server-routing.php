@@ -8,7 +8,7 @@ if($router[-1]=='/'){
 }
 
 if($router == ''){
-    include 'bad-file.html';
+    include 'bad-file.php';
     exit;
 }else{
     echo "error 404";

